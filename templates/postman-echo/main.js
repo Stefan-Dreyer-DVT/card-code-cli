@@ -3,14 +3,15 @@
 const beforeTransaction = async (authorization) => {
   console.log(authorization);
 
-  const apiEndpoint = 'https://postman-echo.com/get?foo1=bar1&foo2=bar2';
+  const apiEndpoint = 'http://localhost:8080/card/auth';
 
   const response = await fetch(apiEndpoint, {
-    method: 'GET',
+    method: 'Post',
     headers: {
       'Content-Type': 'application/json',
     },
   });
+  console.log(response)
   const json = await response.json();
   if (json.args.foo) {
     return true;
